@@ -1,0 +1,4 @@
+remote_admin:
+ansible_become_pass:
+privatekey_path:
+certificate_path:
