@@ -1,0 +1,16 @@
+[Unit]
+Description=blackbox
+After=syslog.target
+
+[Service]
+User=blackbox
+Group=blackbox
+ExecStart=/usr/local/blackbox/blackbox_exporter --config.file=/etc/blackbox/config.yml --web.config.file=/etc/blackbox/web-config.yml --web.listen-address=":9115"
+WorkingDirectory=/usr/local/blackbox
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=blackbox
+SuccessExitStatus=143
+
+[Install]
+WantedBy=multi-user.target
