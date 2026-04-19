@@ -1,0 +1,24 @@
+### GET request
+GET https://113-30-190-16.cloud-xip.com:9115/probe?target=https://challenge-flightradar-gatomek.netlify.app&module=http_2xx&debug=true
+
+###
+
+### GET request
+GET https://113-30-190-16.cloud-xip.com:9115/probe?target=https://challenge-flightradar-gatomek.netlify.app&module=http_2xx
+
+###
+
+### GET request
+GET https://113-30-190-16.cloud-xip.com:9115/probe?target=https://113-30-190-16.cloud-xip.com:12000/logs&module=http_2xx&debug=true
+
+###
+
+### GET request
+GET https://113-30-190-16.cloud-xip.com:9115/metrix
+
+###
+
+### GET request
+GET https://113-30-190-16.cloud-xip.com:9115/metrix&debug=true
+
+###
