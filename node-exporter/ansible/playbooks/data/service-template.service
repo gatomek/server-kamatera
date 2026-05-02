@@ -1,0 +1,17 @@
+[Unit]
+Description=node-exporter
+After=syslog.target
+
+[Service]
+User=node-exporter
+Group=node-exporter
+ExecStart=/usr/local/node-exporter/node_exporter --web.config.file=/etc/node-exporter/web-config.yml
+WorkingDirectory=/usr/local/node-exporter
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=node-exporter
+SuccessExitStatus=143
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

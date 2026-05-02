@@ -39,6 +39,13 @@ scrape_configs:
         labels:
           app: "radar-collector"
 
+  - job_name: "node-exporter"
+    scheme: https
+    static_configs:
+      - targets: ['113-30-190-16.cloud-xip.com:9100']
+        labels:
+          app: "node-exporter"
+
   - job_name: 'blackbox-https-monitoring'
     scheme: https
     scrape_timeout: 15s
@@ -53,6 +60,8 @@ scrape_configs:
           - https://113-30-190-16.cloud-xip.com:3000
           - https://113-30-190-16.cloud-xip.com:12000/actuator/health
           - https://113-30-190-16.cloud-xip.com:9090
+          - https://113-30-190-16.cloud-xip.com:9100
+          - https://113-30-190-16.cloud-xip.com:9080/api/users
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
