@@ -49,7 +49,7 @@
         group: "{{app_name}}"
         mode: '0700'
 
-    - name: "Upload local config file"
+    - name: "Upload local config file to /etc/{{app_name}}/"
       copy:
         src: "data/config.yml"
         dest: "/etc/{{app_name}}/"
