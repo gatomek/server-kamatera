@@ -12,3 +12,4 @@ Kamatera Linux tools
 * 9115 - Prometheus Blackbox-Exporter
 * 15672 - RabbitMQ (http)
 * 5673 - RabbitMQ (amqp)
+* 4873 - Verdaccio

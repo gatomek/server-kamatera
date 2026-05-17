@@ -61,15 +61,10 @@ Environment Info:
 
 ## Questions
 
-- how to start Verdaccio ? -> verdaccio
-- how to start Verdaccio as a service ?
-- how to access via url ?
 - how to set user via url ?
 - how to upload artifacts ?
 - how to config proxy to other npm registries ?
 - what kind of plugins are there ?
-- how to use it as a cache of npmjs.org registry ? -> out of the box
-  - can I set ttl ? 
 - how to add users and limit access to certain packages ?
 
 ## Knowledge base
