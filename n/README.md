@@ -1,7 +1,7 @@
 # N
 Node manager
 
-## Wide-system installation
+## System-wide installation
 ```
 # 1. Clone the official 'n' repository to a temporary folder
 git clone https://github.com/tj/n.git /opt/n
