@@ -47,15 +47,15 @@ Environment Info:
 ```
 
 ## App configuration
-- /usr/local/verdaccio - app catalog
-- /var/lib/verdaccio - home catalog
+- /usr/local/verdaccio - app directory
+- /var/lib/verdaccio - home directory
 
 
 ## Best practices
 
 - https://www.verdaccio.org/docs/best/
 
-## todos
+## TODOs
 
 - check discord channel
 
