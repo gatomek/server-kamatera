@@ -4,10 +4,10 @@ Node manager
 ## System-wide installation
 ```
 # 1. Clone the official 'n' repository to a temporary folder
-git clone https://github.com/tj/n.git /opt/n
+git clone https://github.com/tj/n.git /tmp/n
 
 # 2. Install it into the system binary folder (/usr/local/bin)
-cd /opt/n && sudo make install
+cd /tmp/n && sudo make install
 
 Now, the n tool itself is installed globally. Every user on the system can type n in their terminal.
 
