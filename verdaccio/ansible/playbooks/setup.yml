@@ -52,6 +52,7 @@
         dest: "/etc/{{ app_name }}"
         owner: "{{ app_name }}"
         group: "{{ app_name }}"
+        mode: "0600"
 
     - name: "Copy ssl private key for keycloak for {{ app_name }}"
       copy:
@@ -60,6 +61,7 @@
         dest: "/etc/{{ app_name }}"
         owner: "{{ app_name }}"
         group: "{{ app_name }}"
+        mode: "0600"
 
     - name: Reload systemd
       systemd:
