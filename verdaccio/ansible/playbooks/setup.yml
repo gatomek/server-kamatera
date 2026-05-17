@@ -10,8 +10,8 @@
     - name: "Creating user {{ app_name }}"
       user:
         name: "{{ app_name }}"
-        shell: /bin/bash
-        system: false
+        shell: /bin/false
+        system: true
         password: "{{ user_password | password_hash('sha512') }}"
         state: present
 
