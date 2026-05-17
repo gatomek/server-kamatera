@@ -1,0 +1,74 @@
+- name: "Setup Verdaccio service"
+  vars_files:
+    - vars/castle.yml
+  gather_facts: no
+  hosts: castle
+  remote_user: "{{ remote_admin }}"
+  become: true
+  become_method: sudo
+  tasks:
+    - name: "Creating user {{ app_name }}"
+      user:
+        name: "{{ app_name }}"
+        shell: /bin/false
+        system: true
+        state: present
+
+    - name: "Create home working app folder /var/lib/{{ app_name }}"
+      file:
+        path: "/var/lib/{{ app_name }}"
+        state: directory
+        owner: "{{ app_name }}"
+        group: "{{ app_name }}"
+        mode: '0700'
+
+    - name: "Create app folder /etc/{{ app_name }}"
+      file:
+        path: "/etc/{{ app_name }}"
+        state: directory
+        owner: "{{ app_name }}"
+        group: "{{ app_name }}"
+        mode: '0700'
+
+    - name: "Upload local config file to /etc/{{ app_name }}/"
+      copy:
+        src: "data/config.yml"
+        dest: "/etc/{{ app_name }}/config.yml"
+        owner: "{{ app_name }}"
+        group: "{{ app_name }}"
+        mode: '0700'
+
+    - name: "Copy {{ app_name }}.service config file to /etc/systemd/system/{{ app_name }}.service"
+      copy:
+        src: "data/{{ app_name }}.service"
+        dest: "/etc/systemd/system/"
+        owner: root
+        group: root
+
+    - name: "Copy ssl certificate for {{ app_name }}"
+      copy:
+        remote_src: true
+        src: /etc/letsencrypt/live/113-30-190-16.cloud-xip.com/fullchain.pem
+        dest: "/etc/{{ app_name }}"
+        owner: "{{ app_name }}"
+        group: "{{ app_name }}"
+        mode: "0600"
+
+    - name: "Copy ssl private key for keycloak for {{ app_name }}"
+      copy:
+        remote_src: true
+        src: /etc/letsencrypt/live/113-30-190-16.cloud-xip.com/privkey.pem
+        dest: "/etc/{{ app_name }}"
+        owner: "{{ app_name }}"
+        group: "{{ app_name }}"
+        mode: "0600"
+
+    - name: Reload systemd
+      systemd:
+        daemon_reload: yes
+
+    - name: "Restart service {{ app_name }}"
+      systemd:
+        name: "{{ app_name }}"
+        state: restarted
+        enabled: true

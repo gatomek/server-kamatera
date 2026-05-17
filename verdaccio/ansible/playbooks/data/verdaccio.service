@@ -1,0 +1,14 @@
+[Unit]
+Description=Verdaccio lightweight npm proxy registry
+
+[Service]
+User=verdaccio
+Group=verdaccio
+Type=simple
+Restart=on-failure
+ExecStart=/usr/local/bin/verdaccio --config /etc/verdaccio/config.yml
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
