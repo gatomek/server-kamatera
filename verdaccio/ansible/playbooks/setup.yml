@@ -12,7 +12,6 @@
         name: "{{ app_name }}"
         shell: /bin/false
         system: true
-        password: "{{ user_password | password_hash('sha512') }}"
         state: present
 
     - name: "Create home working app folder /var/lib/{{ app_name }}"
