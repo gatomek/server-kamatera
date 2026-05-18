@@ -69,3 +69,20 @@ Environment Info:
 
 ## Knowledge base
 - https://www.verdaccio.org/docs/articles
+
+## Adding user
+```
+npm adduser --registry https://113-30-190-16.cloud-xip.com:4873/
+npm notice Log in on https://113-30-190-16.cloud-xip.com:4873/
+Username: admin
+Password: 
+Email: (this IS public) 
+
+Logged in on https://113-30-190-16.cloud-xip.com:4873/.
+
+```
+
+## Publishing
+```
+npm publish --registry https://113-30-190-16.cloud-xip.com:4873/
+```
