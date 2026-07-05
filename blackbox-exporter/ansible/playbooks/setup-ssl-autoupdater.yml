@@ -41,8 +41,8 @@
       systemd:
         daemon_reload: yes
 
-    - name: Start timer
+    - name: Restart timer
       systemd:
         name: devops-blackbox-ssl-updater.timer
-        state: started
+        state: restarted
         enabled: true
