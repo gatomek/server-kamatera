@@ -6,9 +6,9 @@
 ansible-playbook -i inventory.ini playbooks/setup-ssl-autoupdater.yml
 ```
 
-## TODOs
+## Backlog
 
-- add teardown playbook
+- [ ] add `teardown-ssl-autoupdater` playbook
 
 ### Links
 

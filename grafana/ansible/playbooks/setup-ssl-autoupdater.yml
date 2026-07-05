@@ -18,7 +18,7 @@
     - name: Render local script file ssl-updater.sh to /opt/grafana/scripts/
       template:
         src: data/ssl-updater.sh
-        dest: /opt/grafana/scripts/
+        dest: /opt/grafana/scripts/ssl-updater.sh
         owner: grafana
         group: users
         mode: '0500'
