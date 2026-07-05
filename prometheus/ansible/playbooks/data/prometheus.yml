@@ -55,9 +55,13 @@ scrape_configs:
       module: [http_2xx]
     static_configs:
       - targets:
-          - https://challenge-flightradar-gatomek.netlify.app
-          - https://113-30-190-16.cloud-xip.com:8443
+          - https://gatomek.github.io/project-flashcards-frontend
+          - https://gatomek.github.io/project-flightradar-frontend
+          - https://gatomek.github.io/kata-flightradar-radars
+          - https://gatomek.github.io/kata-flightradar-flight
+          - https://113-30-190-16.cloud-xip.com:50000/decks
           - https://113-30-190-16.cloud-xip.com:3000
+          - https://113-30-190-16.cloud-xip.com:8443
           - https://113-30-190-16.cloud-xip.com:12000/actuator/health
           - https://113-30-190-16.cloud-xip.com:9090
           - https://113-30-190-16.cloud-xip.com:9100
