@@ -1,4 +1,4 @@
-- name: "Setup Node SSL Autoupdater"
+- name: "Setup {{app_name}} SSL Autoupdater"
   vars_files:
     - vars/prod.yml
   gather_facts: no
