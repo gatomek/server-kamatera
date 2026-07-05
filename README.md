@@ -1,5 +1,5 @@
 # Server Castle
-Server Castle
+Server Castle konfiguration
 
 ## Repo
 https://github.com/gatomek/server-kamatera
