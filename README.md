@@ -1,6 +1,9 @@
 # server-kamatera
 Kamatera Linux tools
 
+## Repo
+https://github.com/gatomek/server-kamatera
+
 ## Services
 * 8080 - Users (http)
 * 9080 - Users (https)
@@ -13,3 +16,6 @@ Kamatera Linux tools
 * 15672 - RabbitMQ (http)
 * 5673 - RabbitMQ (amqp)
 * 4873 - Verdaccio
+
+## TODOS
+* install custom python environment
