@@ -6,3 +6,8 @@
 ```
 ansible-playbook -i inventory.ini playbooks/setup.yml
 ```
+
+```
+systemctl list-timers
+systemctl list-timers devops-node-exporter-ssl-updater
+```
