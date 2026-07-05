@@ -1,0 +1,16 @@
+[Unit]
+Description=Devops Blackbox SSL updater
+Documentation=man:systemd.service(5)
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=root
+WorkingDirectory=/opt/blackbox
+ExecStart=/bin/bash /opt/blackbox/scripts/ssl-updater.sh
+TimeoutStartSec=600
+PrivateTmp=yes
+ProtectSystem=full
+ReadWritePaths=/etc/blackbox/
+NoNewPrivileges=yes

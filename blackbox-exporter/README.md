@@ -7,5 +7,8 @@
 ## Remarks
 * Blackbox doesn't support https connections to him from outside ?
 
-
+```
+systemctl list-timers
+systemctl list-timers devops-blackbox-ssl-updater
+```
 
