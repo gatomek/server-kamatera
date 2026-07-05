@@ -1,0 +1,16 @@
+[Unit]
+Description=Devops Grafana SSL updater (1h)
+Documentation=man:systemd.service(5)
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=root
+WorkingDirectory=/opt/grafana
+ExecStart=/bin/bash /opt/grafana/scripts/ssl-updater.sh
+TimeoutStartSec=600
+PrivateTmp=yes
+ProtectSystem=full
+ReadWritePaths=/usr/local/grafana/
+NoNewPrivileges=yes

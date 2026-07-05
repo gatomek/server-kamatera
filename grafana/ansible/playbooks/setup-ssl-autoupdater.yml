@@ -1,0 +1,48 @@
+- name: "Setup Grafana SSL Autoupdater"
+  vars_files:
+    - vars/prod.yml
+  gather_facts: no
+  hosts: castle
+  remote_user: "{{remote_admin}}"
+  become: true
+  become_method: sudo
+  tasks:
+    - name: Create script folder /opt/grafana/scripts
+      file:
+        path: /opt/grafana/scripts
+        state: directory
+        owner: grafana
+        group: users
+        mode: '0700'
+
+    - name: Render local script file ssl-updater.sh to /opt/grafana/scripts/
+      template:
+        src: data/ssl-updater.sh
+        dest: /opt/grafana/scripts/ssl-updater.sh
+        owner: grafana
+        group: users
+        mode: '0500'
+
+    - name: Copy systemd devops-grafana-ssl-updater.service file to /etc/systemd/system/
+      copy:
+        src: data/devops-grafana-ssl-updater.service
+        dest: /etc/systemd/system/
+        owner: root
+        group: root
+
+    - name: Copy systemd devops-grafana-ssl-updater.timer file to /etc/systemd/system/
+      copy:
+        src: data/devops-grafana-ssl-updater.timer
+        dest: /etc/systemd/system/
+        owner: root
+        group: root
+
+    - name: Reload systemd
+      systemd:
+        daemon_reload: yes
+
+    - name: Start timer
+      systemd:
+        name: devops-grafana-ssl-updater.timer
+        state: started
+        enabled: true
