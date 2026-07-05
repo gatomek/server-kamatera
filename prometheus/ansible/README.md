@@ -6,5 +6,14 @@
 
 ## Ansible commands
 ```
-ansible-playbook -i inventory.ini playbooks/blackbox.yml
+ansible-playbook -i inventory.ini playbooks/configure.yml
+ansible-playbook -i inventory.ini playbooks/setup-ssl-autoupdater.yml
+```
+
+### Timers HowTo
+
+```
+systemctl list-timers
+systemctl list-timers devops-prometheus-ssl-updater
+
 ```
