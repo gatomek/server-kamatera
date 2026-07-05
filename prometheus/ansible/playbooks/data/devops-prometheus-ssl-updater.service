@@ -1,0 +1,16 @@
+[Unit]
+Description=Devops Prometheus SSL updater (1h)
+Documentation=man:systemd.service(5)
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=root
+WorkingDirectory=/opt/prometheus
+ExecStart=/bin/bash /opt/prometheus/scripts/ssl-updater.sh
+TimeoutStartSec=600
+PrivateTmp=yes
+ProtectSystem=full
+ReadWritePaths=/etc/promehteus/
+NoNewPrivileges=yes

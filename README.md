@@ -1,5 +1,5 @@
-# server-kamatera
-Kamatera Linux tools
+# Server Castle
+Server Castle
 
 ## Repo
 https://github.com/gatomek/server-kamatera
@@ -8,7 +8,7 @@ https://github.com/gatomek/server-kamatera
 * 8080 - Users (http)
 * 9080 - Users (https)
 * 8443 - Keycloak
-* 3000 - ???
+* 3000 - Grafana
 * 12000 - Radar Collector 
 * 9090 - Prometheus
 * 9100 - Prometheus Node-Exporter
@@ -17,5 +17,5 @@ https://github.com/gatomek/server-kamatera
 * 5673 - RabbitMQ (amqp)
 * 4873 - Verdaccio
 
-## TODOS
+## Backlog
 * install custom python environment

@@ -1,0 +1,48 @@
+- name: "Setup Prometheus SSL Autoupdater"
+  vars_files:
+    - vars/prod.yml
+  gather_facts: no
+  hosts: castle
+  remote_user: "{{remote_admin}}"
+  become: true
+  become_method: sudo
+  tasks:
+    - name: Create script folder /opt/prometheus/scripts
+      file:
+        path: /opt/prometheus/scripts
+        state: directory
+        owner: prometheus
+        group: prometheus
+        mode: '0700'
+
+    - name: Render local script file ssl-updater.sh to /opt/prometheus/scripts/
+      template:
+        src: data/ssl-updater.sh
+        dest: /opt/prometheus/scripts/ssl-updater.sh
+        owner: prometheus
+        group: prometheus
+        mode: '0500'
+
+    - name: Copy systemd devops-prometheus-ssl-updater.service file to /etc/systemd/system/
+      copy:
+        src: data/devops-prometheus-ssl-updater.service
+        dest: /etc/systemd/system/
+        owner: root
+        group: root
+
+    - name: Copy systemd devops-prometheus-ssl-updater.timer file to /etc/systemd/system/
+      copy:
+        src: data/devops-prometheus-ssl-updater.timer
+        dest: /etc/systemd/system/
+        owner: root
+        group: root
+
+    - name: Reload systemd
+      systemd:
+        daemon_reload: yes
+
+    - name: Start timer
+      systemd:
+        name: devops-prometheus-ssl-updater.timer
+        state: started
+        enabled: true
