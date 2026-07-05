@@ -1,8 +1,8 @@
-- name: "Setup Node Exporter"
+- name: "Setup {{app_name}}"
   vars_files:
     - vars/prod.yml
   gather_facts: no
-  hosts: kamatera
+  hosts: castle
   remote_user: "{{remote_admin}}"
   become: true
   become_method: sudo
@@ -60,7 +60,7 @@
     - name: "Copy ssl certificate for {{app_name}}"
       copy:
         remote_src: true
-        src: /etc/letsencrypt/live/113-30-190-16.cloud-xip.com/fullchain.pem
+        src: "/etc/letsencrypt/live/{{server_dns}}/fullchain.pem"
         dest: "/etc/{{app_name}}/"
         owner: "{{app_name}}"
         group: "{{app_name}}"
@@ -69,7 +69,7 @@
     - name: "Copy ssl private key for {{app_name}}"
       copy:
         remote_src: true
-        src: /etc/letsencrypt/live/113-30-190-16.cloud-xip.com/privkey.pem
+        src: "/etc/letsencrypt/live/{{server_dns}}/privkey.pem"
         dest: "/etc/{{app_name}}/"
         owner: "{{app_name}}"
         group: "{{app_name}}"
