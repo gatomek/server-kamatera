@@ -10,11 +10,11 @@ ansible-playbook -i inventory.ini playbooks/setup-ssl-autoupdater.yml
 
 - [ ] add `teardown-ssl-autoupdater` playbook
 
-### Links
+## Links
 
 - https://medium.com/@mahinshanazeer/automating-daily-tasks-with-systemd-timers-a-practical-guide-using-python-b6a11e9d6a09
 
-### Timers HowTo
+## Timers HowTo
 
 ```
 systemctl list-timers
