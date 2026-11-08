@@ -1,0 +1,7 @@
+services:
+  grafana-restarter:
+    container_name: ansible_grafana_restarter
+    build:
+      context: .
+      dockerfile: ansible.Dockerfile
+    command: ansible-playbook -i inventory.ini playbooks/setup-restarter.yml
